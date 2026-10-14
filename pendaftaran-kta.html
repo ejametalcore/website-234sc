@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasi KTA - DPC 234 SC Kuningan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Library QR Code Generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 py-8 px-4">
+
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-6 flex justify-between items-center">
+      <a href="index.html" class="text-red-700 font-bold hover:underline">← Kembali ke Beranda</a>
+      <span class="text-sm text-gray-500">Portal Registrasi KTA Online</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200">
+      
+      <!-- Left Column: Formulir Pendaftaran -->
+      <div class="lg:col-span-7">
+        <h2 class="text-2xl font-black text-red-700 mb-1">FORMULIR REGISTRASI ANGGOTA</h2>
+        <p class="text-xs text-gray-500 mb-6">Lengkapi data diri sesuai KTP untuk memproses verifikasi KTA.</p>
+
+        <form id="ktaForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Nama Lengkap (Sesuai KTP)</label>
+            <input type="text" id="inputNama" required class="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-red-600 focus:outline-none" placeholder="Ahmad Fauzi, S.Pd.">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">NIK KTP (16 Digit)</label>
+            <input type="text" id="inputNik" maxlength="16" required class="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-red-600 focus:outline-none" placeholder="3208012304950002">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">No. WhatsApp Aktif</label>
+            <input type="tel" required class="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-red-600 focus:outline-none" placeholder="082123456789">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Kecamatan (PAC)</label>
+              <select id="selectPac" class="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-red-600 focus:outline-none">
+                <option value="Kuningan">Kuningan</option>
+                <option value="Ciawigebang">Ciawigebang</option>
+                <option value="Cilimus">Cilimus</option>
+                <option value="Kadurugede">Kadurugede</option>
+                <option value="Luragung">Luragung</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Jabatan/Status</label>
+              <select class="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-red-600 focus:outline-none">
+                <option>Anggota / Simpatisan</option>
+                <option>Pengurus DPC</option>
+                <option>Pengurus PAC</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Pasfoto Berwarna (3x4)</label>
+            <input type="file" id="inputFoto" accept="image/*" class="w-full border border-gray-300 p-2 rounded-lg text-xs text-gray-500">
+          </div>
+
+          <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-3 rounded-lg transition shadow mt-4">
+            KIRIM PENDAFTARAN KTA
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Column: Live Card Preview -->
+      <div class="lg:col-span-5 bg-gray-50 p-6 rounded-xl border border-dashed border-gray-300 flex flex-col items-center justify-center">
+        <h3 class="text-xs font-extrabold text-gray-400 mb-4 tracking-wider">PREVIEW KTA DIGITAL</h3>
+
+        <!-- Card Container -->
+        <div class="w-full max-w-sm bg-gradient-to-br from-red-800 via-red-900 to-black text-white p-5 rounded-2xl shadow-2xl relative overflow-hidden border border-red-600">
+          <!-- Card Header -->
+          <div class="flex justify-between items-center border-b border-red-500/40 pb-2 mb-4">
+            <div>
+              <div class="text-[10px] font-bold text-yellow-400 tracking-wider">DPC 234 SC KUNINGAN</div>
+              <div class="text-[8px] text-gray-300">KARTU TANDA ANGGOTA</div>
+            </div>
+            <div class="font-black text-lg text-yellow-400">234 SC</div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="flex gap-4 items-center">
+            <!-- Foto Box -->
+            <div class="w-20 h-24 bg-gray-700 rounded-lg overflow-hidden border border-red-400 flex items-center justify-center flex-shrink-0">
+              <img id="previewImage" src="https://via.placeholder.com/150?text=FOTO+3x4" alt="Pasfoto" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Detail Anggota -->
+            <div class="text-[11px] space-y-1">
+              <div class="font-black text-sm text-yellow-300 uppercase leading-tight" id="cardNama">AHMAD FAUZI</div>
+              <div class="text-gray-200">ID: <span id="cardId" class="font-mono">234.3208.2026.001</span></div>
+              <div class="text-gray-200">PAC: <span id="cardPac">Kec. Kuningan</span></div>
+              <div class="text-gray-300 text-[9px] mt-2">Masa Berlaku: 2026-2029</div>
+            </div>
+          </div>
+
+          <!-- Card Footer (QR Code) -->
+          <div class="mt-4 pt-2 border-t border-red-500/40 flex justify-between items-center">
+            <span class="text-[8px] text-gray-400">Scan QR untuk Verifikasi Keaslian</span>
+            <div id="qrcode" class="p-1 bg-white rounded shadow"></div>
+          </div>
+        </div>
+
+        <p class="text-[10px] text-gray-500 text-center mt-4">
+          Kartu Tanda Anggota otomatis tergenerasi secara langsung.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Realtime Form Script -->
+  <script>
+    // Live update preview
+    document.getElementById('inputNama').addEventListener('input', (e) => {
+      document.getElementById('cardNama').innerText = e.target.value || 'AHMAD FAUZI';
+    });
+
+    document.getElementById('selectPac').addEventListener('change', (e) => {
+      document.getElementById('cardPac').innerText = 'Kec. ' + e.target.value;
+    });
+
+    // Preview foto
+    document.getElementById('inputFoto').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.getElementById('previewImage').src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Generate QR Code otomatis
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: "https://ejaz34sc.my.id/verify/234.3208.2026.001",
+      width: 40,
+      height: 40
+    });
+
+    document.getElementById('ktaForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Pendaftaran berhasil diproses secara lokal!');
+    });
+  </script>
+
+</body>
+</html>
