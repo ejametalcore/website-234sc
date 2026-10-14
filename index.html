@@ -44,21 +44,21 @@
     </div>
   </header>
 
-  <!-- Hero Section dengan Slideshow Foto Kegiatan Asli -->
+  <!-- Hero Section dengan Slideshow Foto Kegiatan -->
   <section id="beranda" class="relative bg-slate-950 text-white min-h-[500px] flex items-center justify-center overflow-hidden">
     
-    <!-- Slideshow Background Images (Foto Upload) -->
+    <!-- Slideshow Background Images -->
     <div class="absolute inset-0 z-0">
       <!-- Slide 1 -->
-      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-100">
+      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-100 flex items-center justify-center bg-slate-950">
         <img src="galeri1.jpg" class="w-full h-full object-cover opacity-30" alt="Slide 1" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80'">
       </div>
       <!-- Slide 2 -->
-      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-0">
+      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex items-center justify-center bg-slate-950">
         <img src="galeri2.jpg" class="w-full h-full object-cover opacity-30" alt="Slide 2" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80'">
       </div>
       <!-- Slide 3 -->
-      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-0">
+      <div class="slide-item absolute inset-0 transition-opacity duration-1000 opacity-0 flex items-center justify-center bg-slate-950">
         <img src="galeri3.jpg" class="w-full h-full object-cover opacity-30" alt="Slide 3" onerror="this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80'">
       </div>
       <!-- Lapisan Gradasi Gelap -->
@@ -168,14 +168,31 @@
     </div>
   </section>
 
-  <!-- Section Galeri Foto (Foto Upload) -->
+  <!-- Section Galeri Foto (Disesuaikan Agar Tidak Terpotong) -->
   <section id="galeri" class="max-w-6xl mx-auto py-16 px-4">
     <h2 class="text-2xl font-bold text-slate-900 mb-6">GALERI KEGIATAN</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="galeri1.jpg" alt="Kegiatan 234 SC 1" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=500&q=80'">
-      <img src="galeri2.jpg" alt="Kegiatan 234 SC 2" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80'">
-      <img src="galeri3.jpg" alt="Kegiatan 234 SC 3" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition" onerror="this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=500&q=80'">
-      <img src="galeri4.jpg" alt="Kegiatan 234 SC 4" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80'">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      
+      <!-- Frame Foto 1 -->
+      <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-2 border border-slate-200 min-h-[220px]">
+        <img src="galeri1.jpg" alt="Kegiatan 234 SC 1" class="max-h-56 w-auto object-contain rounded-xl hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=500&q=80'">
+      </div>
+
+      <!-- Frame Foto 2 -->
+      <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-2 border border-slate-200 min-h-[220px]">
+        <img src="galeri2.jpg" alt="Kegiatan 234 SC 2" class="max-h-56 w-auto object-contain rounded-xl hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80'">
+      </div>
+
+      <!-- Frame Foto 3 -->
+      <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-2 border border-slate-200 min-h-[220px]">
+        <img src="galeri3.jpg" alt="Kegiatan 234 SC 3" class="max-h-56 w-auto object-contain rounded-xl hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=500&q=80'">
+      </div>
+
+      <!-- Frame Foto 4 -->
+      <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-md flex items-center justify-center p-2 border border-slate-200 min-h-[220px]">
+        <img src="galeri4.jpg" alt="Kegiatan 234 SC 4" class="max-h-56 w-auto object-contain rounded-xl hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80'">
+      </div>
+
     </div>
   </section>
 
